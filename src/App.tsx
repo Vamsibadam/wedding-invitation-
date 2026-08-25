@@ -31,7 +31,7 @@ import ganesha from "./assets/ganesha.png";
 
 
 import bride from "./assets/bride.png";
-import groom from "./assets/groom.png";
+import groom from "./assets/groom1.png";
 
 import mandapam from "./assets/mandapam.png";
 import venue from "./assets/venue.png";
@@ -435,7 +435,7 @@ function WeddingStyles() {
         isolation: isolate;
       }
 
-      .invitation-main-title { padding: .10em 12px .18em; min-height: 1.25em; line-height: 1.18; }
+      .invitation-main-title {padding: 0.18em 0.08em 0.16em; min-height: 1.25em; line-height: 1.18; }
       .invitation-subtitle { padding: 3px 10px 7px; }
 
       /* LARGER EVENT PHOTOS */
@@ -1070,37 +1070,36 @@ function WeddingStyles() {
       }
 
       .cover-main-title {
-        position: relative;
-        z-index: 10;
-        padding: .08em .08em .14em;
-        line-height: 1.12;
-        color:
-          #a83d5b;
+  position: relative;
+  z-index: 10;
 
-        font-size:
-          clamp(
-            64px,
-            18vw,
-            92px
-          );
+  /* Give Telugu glyphs enough vertical breathing room */
+  padding: 0.18em 0.08em 0.16em;
 
-        line-height: 1;
+  color: #a83d5b;
 
-        font-weight: 900;
+  font-size: clamp(
+    64px,
+    18vw,
+    92px
+  );
 
-        letter-spacing:
-          -1px;
+  /* Important: 1 was clipping the top of the Telugu characters */
+  line-height: 1.18;
 
-        margin: 0;
-       
+  font-weight: 900;
 
-        text-shadow:
-          0 2px 0
-          rgba(255,255,255,.75),
+  letter-spacing: -1px;
 
-          0 5px 14px
-          rgba(113,45,62,.12);
-      }
+  margin: 0;
+
+  text-shadow:
+    0 2px 0
+    rgba(255,255,255,.75),
+
+    0 5px 14px
+    rgba(113,45,62,.12);
+}
 
       .cover-subtitle {
         position: relative;
@@ -1326,7 +1325,7 @@ function WeddingStyles() {
 
         bottom: 0;
 
-        height: 13%;
+        height: 8%;
 
         pointer-events:
           none;
@@ -1342,7 +1341,7 @@ function WeddingStyles() {
       .invitation-gopuram-image {
         width: 100%;
 
-        height: 100%;
+        height: 60%;
 
         object-fit:
           contain;
@@ -3150,7 +3149,7 @@ export default function App() {
             delay={0.2}
             stagger={0.045}
           >
-            ॥ శ్రీ రామ • జయరామ • జయ జయరామ ॥
+            ॥ శ్రీరస్తు • శుభమస్తు • అవిఘ్నమస్తు ॥
           </AnimatedText>
 
           {/* =================================================
@@ -3174,7 +3173,7 @@ export default function App() {
             delay={1.0}
             stagger={0.05}
           >
-            వివాహ
+            వారి వివాహ ఆహ్వానం
           </AnimatedText>
 
           {/* =================================================
@@ -3384,6 +3383,78 @@ export default function App() {
             className="invitation-bottom-fade"
           />
         </section>
+         {/* =================================================
+              SECTION 04
+              GROOM
+          ================================================= */}
+
+          <section className="wedding-screen">
+            <FlowerMala />
+
+            <BananaTreeFrame />
+
+            <Reveal
+              delay={0}
+            >
+              <Portrait
+                image={groom}
+                name={
+                  WEDDING.groom
+                }
+              />
+            </Reveal>
+
+            <div
+              style={{
+                marginTop: 28,
+              }}
+            >
+              <AnimatedText
+                className="gold-kicker"
+                delay={0.7}
+                stagger={0.045}
+              >
+                వరుడు
+              </AnimatedText>
+
+              <AnimatedText
+                className="gold-title"
+                delay={0.95}
+                stagger={0.07}
+                direction="left"
+              >
+                {
+                  WEDDING.groom
+                }
+              </AnimatedText>
+
+              
+
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  scaleX: 0,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  scaleX: 1,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  delay: 2.05,
+                  duration: 0.45,
+                }}
+              >
+                <Divider />
+              </motion.div>
+            </div>
+
+          <Kalash />
+
+        </section>
+
 
         {/* =================================================
             SECTION 03
@@ -3434,13 +3505,7 @@ export default function App() {
               }
             </AnimatedText>
 
-            <AnimatedText
-              className="teal-title"
-              delay={1.5}
-              stagger={0.018}
-            >
-              ప్రియమైన కుటుంబ సభ్యుల ముద్దుల కుమార్తె
-            </AnimatedText>
+            
 
             <motion.div
               initial={{
@@ -3467,84 +3532,7 @@ export default function App() {
 
         </section>
 
-        {/* =================================================
-            SECTION 04
-            GROOM
-        ================================================= */}
-
-        <section className="wedding-screen">
-          <FlowerMala />
-
-          <BananaTreeFrame />
-
-          <Reveal
-            delay={0}
-          >
-            <Portrait
-              image={groom}
-              name={
-                WEDDING.groom
-              }
-            />
-          </Reveal>
-
-          <div
-            style={{
-              marginTop: 28,
-            }}
-          >
-            <AnimatedText
-              className="gold-kicker"
-              delay={0.7}
-              stagger={0.045}
-            >
-              వరుడు
-            </AnimatedText>
-
-            <AnimatedText
-              className="gold-title"
-              delay={0.95}
-              stagger={0.07}
-              direction="left"
-            >
-              {
-                WEDDING.groom
-              }
-            </AnimatedText>
-
-            <AnimatedText
-              className="teal-title"
-              delay={1.5}
-              stagger={0.018}
-            >
-              ప్రియమైన కుటుంబ సభ్యుల ముద్దుల కుమారుడు
-            </AnimatedText>
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                scaleX: 0,
-              }}
-              whileInView={{
-                opacity: 1,
-                scaleX: 1,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                delay: 2.05,
-                duration: 0.45,
-              }}
-            >
-              <Divider />
-            </motion.div>
-          </div>
-
-          <Kalash />
-
-        </section>
-
+         
         {/* =================================================
             SECTION 05
             WEDDING DATE + MANDAPAM
