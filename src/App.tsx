@@ -4238,6 +4238,14 @@ export default function App() {
           >
             మా జీవితంలో ఈ శుభదినాన్ని మీతో కలిసి జరుపుకోవాలని మనస్ఫూర్తిగా కోరుకుంటున్నాము
           </AnimatedText>
+          <AnimatedText
+            className="final-copy"
+            delay={2.1}
+            stagger={0.012}
+          >
+            Sandeep : 9160886031  
+            Sudheer : 8501926034
+          </AnimatedText>
 
           <motion.div
             className="final-date"
