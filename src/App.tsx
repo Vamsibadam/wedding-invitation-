@@ -36,13 +36,13 @@ import groom from "./assets/groom.png";
 import mandapam from "./assets/mandapam.png";
 import venue from "./assets/venue.png";
 
-import pic1 from "./assets/pic1.png";
-import pic2 from "./assets/pic2.png";
+import pic1 from "./assets/pic1.jpeg";
+import pic2 from "./assets/pic2.jpeg";
 
-import pic3 from "./assets/pic3.png";
-import pic4 from "./assets/pic4.png";
+import pic3 from "./assets/pic3.jpeg";
+import pic4 from "./assets/pic4.jpeg";
 
-import pic5 from "./assets/pic5.png";
+import pic5 from "./assets/pic5.jpeg";
 
 import event1 from "./assets/event-1.png";
 import event2 from "./assets/event-2.png";
@@ -55,17 +55,17 @@ import event5 from "./assets/event-5.png";
 ========================================================= */
 
 const WEDDING = {
-  bride: "శ్రావణి",
-  groom: "కార్తికేయ",
+  bride: "లావణ్య",
+  groom: "సతీష్",
 
-  date: "24 • 08 • 2026",
+  date: "03 • 09 • 2026",
 
-  time: "ఉదయం 04:35 గం.",
+  time: "శుక్రవారం తెల్లవారుజామున 02:58 గం.",
 
   venue:
-    "శ్రీ లక్ష్మీ నరసింహ స్వామి కళ్యాణ మండపం",
+    "శ్రీ వాసవి ఆర్యవైశ్య ఇందుపూరు కళ్యాణ వేదిక A/C, ఆదాబడి వీధి",
 
-  city: "విజయవాడ",
+  city: "పార్వతీపురం",
 };
 
 /* =========================================================
@@ -1151,13 +1151,7 @@ function WeddingStyles() {
           rgba(88,58,19,.18);
       }
 
-      /* =====================================================
-         PAGE 02 - INVITATION / GOPURAM
-
-         This page matches the supplied reference:
-         Ganesha -> కోకిలా -> వారి -> వివాహ ఆహ్వానం
-         -> large gopuram rising from the bottom.
-      ===================================================== */
+      
 
       .invitation-intro-screen {
         min-height:
@@ -1867,13 +1861,33 @@ function WeddingStyles() {
       ===================================================== */
 
       .gallery {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1.08fr .92fr;
-        grid-auto-rows: 155px;
-        gap: 12px;
-        margin-top: 28px;
-      }
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 155px 155px 220px;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* 4 portrait images */
+.gallery img:nth-child(1),
+.gallery img:nth-child(2),
+.gallery img:nth-child(3),
+.gallery img:nth-child(4) {
+  grid-column: auto;
+}
+
+/* Landscape image */
+.gallery img:nth-child(5) {
+  grid-column: 1 / -1;
+}
 
       .gallery-photo {
         width: 100%;
@@ -2385,9 +2399,9 @@ function AnimatedText({
   delay?: number;
   stagger?: number;
   direction?:
-    | "up"
-    | "left"
-    | "right";
+  | "up"
+  | "left"
+  | "right";
 }) {
   const ref =
     useRef<HTMLDivElement | null>(
@@ -2447,17 +2461,17 @@ function AnimatedText({
 
                 y:
                   direction ===
-                  "up"
+                    "up"
                     ? 16
                     : 0,
               }}
               animate={
                 visible
                   ? {
-                      opacity: 1,
-                      x: 0,
-                      y: 0,
-                    }
+                    opacity: 1,
+                    x: 0,
+                    y: 0,
+                  }
                   : undefined
               }
               transition={{
@@ -2466,7 +2480,7 @@ function AnimatedText({
                 delay:
                   delay +
                   index *
-                    stagger,
+                  stagger,
 
                 ease: [
                   0.22,
@@ -2544,10 +2558,10 @@ function Reveal({
       animate={
         visible
           ? {
-              opacity: 1,
-              y: 0,
-              scale: 1,
-            }
+            opacity: 1,
+            y: 0,
+            scale: 1,
+          }
           : undefined
       }
       transition={{
@@ -2924,9 +2938,8 @@ function Toranam({
 }) {
   return (
     <div
-      className={`golden-toranam ${
-        bottom ? "bottom" : ""
-      }`}
+      className={`golden-toranam ${bottom ? "bottom" : ""
+        }`}
       aria-hidden="true"
     >
       {Array.from({ length: 17 }).map(
@@ -2944,7 +2957,7 @@ export default function App() {
   const [playing, setPlaying] =
     useState(false);
 
-  
+
 
   const mainRef =
     useRef<HTMLElement | null>(
@@ -3016,33 +3029,33 @@ export default function App() {
   ======================================================= */
 
   const toggleMusic =
-  async () => {
-    const music =
-      audioRef.current;
+    async () => {
+      const music =
+        audioRef.current;
 
-    if (!music) {
-      return;
-    }
+      if (!music) {
+        return;
+      }
 
-    try {
-      if (music.paused) {
-        await music.play();
+      try {
+        if (music.paused) {
+          await music.play();
 
-        setPlaying(true);
-      } else {
-        music.pause();
+          setPlaying(true);
+        } else {
+          music.pause();
+
+          setPlaying(false);
+        }
+      } catch (error) {
+        console.error(
+          "Music could not be played:",
+          error
+        );
 
         setPlaying(false);
       }
-    } catch (error) {
-      console.error(
-        "Music could not be played:",
-        error
-      );
-
-      setPlaying(false);
-    }
-  };
+    };
   /* =======================================================
      OPEN INVITATION
 
@@ -3050,36 +3063,36 @@ export default function App() {
 ======================================================= */
 
   const openInvitation =
-  async () => {
-    setOpened(true);
+    async () => {
+      setOpened(true);
 
-    const music =
-      audioRef.current;
+      const music =
+        audioRef.current;
 
-    if (!music) {
-      return;
-    }
+      if (!music) {
+        return;
+      }
 
-    try {
-      music.volume = 0.42;
+      try {
+        music.volume = 0.42;
 
-      await music.play();
+        await music.play();
 
-      setPlaying(true);
-    } catch (error) {
-      console.error(
-        "Music autoplay failed:",
-        error
-      );
+        setPlaying(true);
+      } catch (error) {
+        console.error(
+          "Music autoplay failed:",
+          error
+        );
 
-      /*
-       * If the browser blocks playback,
-       * the music button will still allow
-       * the user to start it manually.
-       */
-      setPlaying(false);
-    }
-  };
+        /*
+         * If the browser blocks playback,
+         * the music button will still allow
+         * the user to start it manually.
+         */
+        setPlaying(false);
+      }
+    };
 
   /* =======================================================
      FIRST PAGE
@@ -3149,7 +3162,7 @@ export default function App() {
             delay={0.55}
             stagger={0.075}
           >
-            కోకిలా
+            భోగి
           </AnimatedText>
 
           {/* =================================================
@@ -3316,7 +3329,7 @@ export default function App() {
               delay={0.38}
               stagger={0.07}
             >
-              కోకిలా
+              భోగి
             </AnimatedText>
 
             <AnimatedText
@@ -3650,7 +3663,7 @@ export default function App() {
             EVENTS
         ================================================= */}
 
-        <section
+        {/* <section
           className="wedding-screen"
           style={{
             alignItems:
@@ -3697,7 +3710,7 @@ export default function App() {
                 const delay =
                   0.6 +
                   index *
-                    0.65;
+                  0.65;
 
                 return (
                   <Reveal
@@ -3709,11 +3722,10 @@ export default function App() {
                     }
                   >
                     <article
-                      className={`event-item ${
-                        index % 2
+                      className={`event-item ${index % 2
                           ? "reverse"
                           : ""
-                      }`}
+                        }`}
                     >
                       <div className="event-node" />
 
@@ -3820,7 +3832,7 @@ export default function App() {
           >
             ❧ ✿ ❧
           </motion.div>
-        </section>
+        </section> */}
 
         {/* =================================================
             SECTION 07
@@ -3899,8 +3911,8 @@ export default function App() {
               className="map-button"
               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
                 WEDDING.venue +
-                  " " +
-                  WEDDING.city
+                " " +
+                WEDDING.city
               )}`}
               target="_blank"
               rel="noreferrer"
@@ -3962,13 +3974,12 @@ export default function App() {
               ) => (
                 <motion.div
                   key={image}
-                  className={`gallery-photo ${
-                    index === 0
+                  className={`gallery-photo ${index === 0
                       ? "tall"
                       : index === 3 || index === 4
                         ? "wide"
                         : ""
-                  }`}
+                    }`}
                   initial={{
                     opacity: 0,
                     y: 40,
@@ -3985,7 +3996,7 @@ export default function App() {
                     delay:
                       0.95 +
                       index *
-                        0.18,
+                      0.18,
 
                     duration:
                       0.55,
@@ -4310,8 +4321,8 @@ export default function App() {
             <a
               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
                 WEDDING.venue +
-                  " " +
-                  WEDDING.city
+                " " +
+                WEDDING.city
               )}`}
               target="_blank"
               rel="noreferrer"
